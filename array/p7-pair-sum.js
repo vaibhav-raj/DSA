@@ -51,6 +51,6 @@ function pairSum(arr, target) {
         }
 
     }
-    console.log(ans);
+    return ans
 }
 console.log(pairSum(arr, target));
