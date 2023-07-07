@@ -4,7 +4,7 @@ PROBLEM STATEMENT
 
 `
 
-const arr = [0, 1, 2, 2, 1, 0, 1]
+const arr = [1, 0, 1, 2, 2, 1, 0, 1]
 
 //approach-1
 function sort(arr) {
@@ -12,26 +12,27 @@ function sort(arr) {
 }
 
 
-//approach-2 : Dutch National Flag algorithm
-// function sort(arr) {
-//     const low = 0, mid = 0;
-//     const high = arr.length - 1;
+// approach-2 : Dutch National Flag algorithm
+function sort(arr) {
 
-//     while (mid <= high) {
-//         if (arr[mid] == 0) {
-//             [arr[mid], arr[low]] = [arr[low], arr[mid]]
-//             low++;
-//             mid++;
-//         }
-//         else if (arr[mid] == 1) {
-//             mid++;
-//         }
-//         else {
-//             [arr[high], arr[mid]] = [arr[mid], arr[high]]
-//             high--;
-//         }
-//     }
-// }
+    let low = 0;
+    let mid = 0
+    let high = arr.length - 1
+
+    while (mid <= high) {
+        if (arr[mid] == 0) {
+            [arr[mid], arr[low]] = [arr[low], arr[mid]];
+            low++;
+            mid++
+        } else if (arr[mid] == 1) {
+            mid++
+        } else {
+            [arr[mid], arr[high]] = [arr[high], arr[mid]];
+            high--
+        }
+    }
+    return arr
+}
 
 
 console.log(sort(arr));
