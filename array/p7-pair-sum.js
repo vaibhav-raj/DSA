@@ -8,7 +8,7 @@ PROBLEM STATEMENT
 const arr = [2, - 3, 3, 3, - 2]
 const target = 0
 
-//approach-1
+// approach - 1
 function pairSum(arr, target) {
 
     const n = arr.length
@@ -29,8 +29,28 @@ function pairSum(arr, target) {
 }
 
 
-//approach-2
+//approach-2  // 
 function pairSum(arr, target) {
 
+    arr = arr.sort((a, b) => a - b);
+
+    let i = 0
+    let j = arr.length - 1
+    const ans = []
+
+    while (i < j) {
+        let sum = arr[i] + arr[j]
+        if (sum == target) {
+            ans.push([arr[i], arr[j]])
+            i++
+            j--
+        } else if (sum < target) {
+            i++
+        } else {
+            j--
+        }
+
+    }
+    console.log(ans);
 }
 console.log(pairSum(arr, target));
